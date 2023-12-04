@@ -74,6 +74,34 @@
           />
           <img src="Resources/font-color-icon-6.jpg" width="18" height="13" />
         </label>
+
+        <button type="button" class="custom-button" onclick="alignText('left')">
+          <img src="Resources/left.png" width="10" height="10" />
+        </button>
+
+        <button
+          type="button"
+          class="custom-button"
+          onclick="alignText('center')"
+        >
+          <img src="Resources/center.png" width="10" height="10" />
+        </button>
+
+        <button
+          type="button"
+          class="custom-button"
+          onclick="alignText('right')"
+        >
+          <img src="Resources/right.png" width="10" height="10" />
+        </button>
+
+        <button
+          type="button"
+          class="custom-button"
+          onclick="alignText('justify')"
+        >
+          <img src="Resources/justify.png" width="10" height="10" />
+        </button>
       </div>
     </center>
 
@@ -101,6 +129,17 @@
         document.execCommand("foreColor", false, selectedColor);
         document.execCommand("styleWithCSS", false, false);
         saveState();
+      }
+
+      function alignText(align) {
+        const validAlignments = ["left", "center", "right", "justify"];
+
+        if (validAlignments.includes(align)) {
+          editor.style.textAlign = align;
+          saveState();
+        } else {
+          console.error("Invalid alignment value provided.");
+        }
       }
     </script>
   </body>
